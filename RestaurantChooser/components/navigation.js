@@ -7,6 +7,9 @@ import RestaurantsScreen from "../screens/restaurants/restaurantsScreen";
 import { Image, Platform } from "react-native";
 import Constants from "expo-constants";
 import { StatusBar } from "expo-status-bar";
+import peopleIcon from "../assets/people.jpg";
+import decisionIcon from "../assets/decision.jpg";
+import restaurantIcon from "../assets/restaurant.jpg";
 
 const platformOS = Platform.OS.toLowerCase();
 const Tab = createMaterialTopTabNavigator();
@@ -33,10 +36,10 @@ export default function AppNavigation() {
         <Tab.Screen
           name="People"
           options={{
-            tabBarIcon: ({ color }) => (
+            tabBarIcon: () => (
               <Image
-                source={require("../assets/people.jpg")}
-                style={{ width: 32, height: 32, tintColor: color }}
+                source={peopleIcon}
+                style={{ width: 32, height: 32, resizeMode: "contain" }}
               />
             ),
           }}
@@ -45,10 +48,10 @@ export default function AppNavigation() {
         <Tab.Screen
           name="Decision"
           options={{
-            tabBarIcon: ({ color }) => (
+            tabBarIcon: () => (
               <Image
-                source={require("../assets/decision.jpg")}
-                style={{ width: 32, height: 32, tintColor: color }}
+                source={decisionIcon}
+                style={{ width: 32, height: 32, resizeMode: "contain" }}
               />
             ),
           }}
@@ -57,10 +60,10 @@ export default function AppNavigation() {
         <Tab.Screen
           name="Restaurants"
           options={{
-            tabBarIcon: ({ color }) => (
+            tabBarIcon: () => (
               <Image
-                source={require("../assets/restaurant.jpg")}
-                style={{ width: 32, height: 32, tintColor: color }}
+                source={restaurantIcon}
+                style={{ width: 32, height: 32, resizeMode: "contain" }}
               />
             ),
           }}
