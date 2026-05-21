@@ -2,14 +2,11 @@ import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import PeopleScreen from "../screens/people/peopleScreen";
-import DecisionScreen from "../screens/decision/decisionScreen";
+import DecisionScreenNavigation from "../screens/decision/decisionScreenNavigation";
 import RestaurantsScreen from "../screens/restaurants/restaurantsScreen";
 import { Image, Platform } from "react-native";
 import Constants from "expo-constants";
 import { StatusBar } from "expo-status-bar";
-import peopleIcon from "../assets/people.jpg";
-import decisionIcon from "../assets/decision.jpg";
-import restaurantIcon from "../assets/restaurant.jpg";
 
 const platformOS = Platform.OS.toLowerCase();
 const Tab = createMaterialTopTabNavigator();
@@ -25,7 +22,7 @@ export default function AppNavigation() {
           animationEnabled: true,
           swipeEnabled: true,
           lazy: true,
-          tabBarShowIcons: true,
+          tabBarShowIcon: true,
           tabBarIndicatorStyle: { backgroundColor: "#555555" },
           tabBarActiveTintColor: "#ff0000",
           tabBarStyle: {
@@ -36,10 +33,10 @@ export default function AppNavigation() {
         <Tab.Screen
           name="People"
           options={{
-            tabBarIcon: () => (
+            tabBarIcon: ({ color }) => (
               <Image
-                source={peopleIcon}
-                style={{ width: 32, height: 32, resizeMode: "contain" }}
+                source={require("../assets/people.jpg")}
+                style={{ width: 32, height: 32 }}
               />
             ),
           }}
@@ -48,22 +45,22 @@ export default function AppNavigation() {
         <Tab.Screen
           name="Decision"
           options={{
-            tabBarIcon: () => (
+            tabBarIcon: ({ color }) => (
               <Image
-                source={decisionIcon}
-                style={{ width: 32, height: 32, resizeMode: "contain" }}
+                source={require("../assets/decision.jpg")}
+                style={{ width: 32, height: 32 }}
               />
             ),
           }}
-          component={DecisionScreen}
+          component={DecisionScreenNavigation}
         />
         <Tab.Screen
           name="Restaurants"
           options={{
-            tabBarIcon: () => (
+            tabBarIcon: ({ color }) => (
               <Image
-                source={restaurantIcon}
-                style={{ width: 32, height: 32, resizeMode: "contain" }}
+                source={require("../assets/restaurant.jpg")}
+                style={{ width: 32, height: 32 }}
               />
             ),
           }}
